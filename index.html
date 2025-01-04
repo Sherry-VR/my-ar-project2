@@ -5,9 +5,9 @@
     <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/ar.js/aframe/build/aframe-ar.min.js"></script>
   </head>
   <body style="margin: 0; overflow: hidden;">
-    <a-scene embedded arjs="sourceType: webcam; trackingMethod: best; maxDetectionRate: 60; smooth: true; smoothCount: 20; smoothTolerance: 0.002; smoothThreshold: 10;" antialias="true" performance="true">
+    <a-scene embedded arjs="sourceType: webcam; trackingMethod: best; maxDetectionRate: 300; smooth: true; smoothCount: 30; smoothTolerance: 0.004; smoothThreshold: 20;" antialias="true" performance="true">
       <!-- 光源設置 -->
-      <a-light type="ambient" intensity="0.8"></a-light>
+      <a-light type="ambient" intensity="1"></a-light>
       <a-light type="directional" position="0 2 2" intensity="1" shadow="cast: false;"></a-light>
       <!-- 標靶和模型 -->
       <a-marker type="nft" url="./pattern-qr-code-Aa.patt" smooth="true" smoothCount="20" smoothTolerance="0.005" smoothThreshold="10">
