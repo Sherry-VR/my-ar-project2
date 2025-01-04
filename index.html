@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- 引入 A-Frame 和 AR.js -->
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/ar.js/aframe/build/aframe-ar.min.js"></script>
   </head>
   <body style="margin: 0; overflow: hidden;">
-    <!-- AR.js 設定 -->
-    <a-scene embedded arjs="sourceType: webcam; trackingMethod: best; maxDetectionRate: 30;" antialias="true">
-      <!-- 定義標靶 -->
+    <a-scene embedded arjs="sourceType: webcam; trackingMethod: best; smooth: true; smoothCount: 10; smoothTolerance: 0.01; smoothThreshold: 5; maxDetectionRate: 15;" antialias="true" performance="true">
       <a-marker type="pattern" url="./pattern-marker.patt">
-        <!-- 加載 3D 模型 -->
         <a-entity 
           position="0 0 4" 
           rotation="-90 0 0" 
@@ -18,7 +14,6 @@
           gltf-model="./wine1_2.glb">
         </a-entity>
       </a-marker>
-      <!-- AR 相機 -->
       <a-entity camera></a-entity>
     </a-scene>
   </body>
