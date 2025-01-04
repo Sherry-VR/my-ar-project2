@@ -32,10 +32,16 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const marker = document.querySelector("#marker");
-        const camera = document.querySelector("#camera");
         const model = document.querySelector("#model");
+        const camera = document.querySelector("#camera");
 
         const checkDistance = () => {
+          if (!marker.object3D.visible) {
+            // 如果標靶不可見，直接隱藏模型
+            model.setAttribute("visible", "false");
+            return;
+          }
+
           // 獲取標靶和相機的世界座標
           const markerPosition = new THREE.Vector3();
           const cameraPosition = new THREE.Vector3();
@@ -54,7 +60,7 @@
           }
         };
 
-        // 在每幀檢查距離
+        // 每幀檢查距離
         document.querySelector("a-scene").addEventListener("tick", checkDistance);
       });
     </script>
