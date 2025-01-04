@@ -35,6 +35,40 @@
         const model = document.querySelector("#model");
         const camera = document.querySelector("#camera");
 
+        const resizeTexture = (texture) => {
+          if (!texture || !texture.image) return;
+          const canvas = document.createElement("canvas");
+          canvas.width = 256;
+          canvas.height = 256;
+          const ctx = canvas.getContext("2d");
+          ctx.drawImage(texture.image, 0, 0, 256, 256);
+          texture.image = canvas;
+          texture.needsUpdate = true;
+        };
+
+        const processTextures = (object) => {
+          object.traverse((child) => {
+            if (child.isMesh && child.material) {
+              const materials = Array.isArray(child.material)
+                ? child.material
+                : [child.material];
+              materials.forEach((material) => {
+                if (material.map) resizeTexture(material.map);
+                if (material.normalMap) resizeTexture(material.normalMap);
+                if (material.roughnessMap) resizeTexture(material.roughnessMap);
+                if (material.metalnessMap) resizeTexture(material.metalnessMap);
+              });
+            }
+          });
+        };
+
+        model.addEventListener("model-loaded", () => {
+          const gltfObject = model.getObject3D("mesh");
+          if (gltfObject) {
+            processTextures(gltfObject);
+          }
+        });
+
         const checkDistance = () => {
           if (!marker.object3D.visible) {
             // 如果標靶不可見，直接隱藏模型
