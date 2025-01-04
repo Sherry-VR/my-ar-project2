@@ -53,7 +53,7 @@
           const distance = markerPosition.distanceTo(cameraPosition);
 
           // 如果距離超過50cm，隱藏模型
-          if (distance > 0.5) {
+          if (distance > 0.2) {
             model.setAttribute("visible", "false");
           } else {
             model.setAttribute("visible", "true");
