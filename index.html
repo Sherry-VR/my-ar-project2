@@ -16,7 +16,7 @@
           id="model"
           position="0 0 1.5" 
           rotation="-90 0 0" 
-          scale="15 15 15" 
+          scale="12 12 12" 
           gltf-model="./wine1_4.glb" 
           render-order="2"
           shadow="cast: false; receive: false;"
@@ -53,7 +53,7 @@
           const distance = markerPosition.distanceTo(cameraPosition);
 
           // 如果距離超過50cm，隱藏模型
-          if (distance > 0.02) {
+          if (distance > 0.01) {
             model.object3D.visible = false;
           } else {
             model.object3D.visible = true;
