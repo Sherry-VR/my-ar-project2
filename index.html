@@ -5,7 +5,7 @@
     <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/ar.js/aframe/build/aframe-ar.min.js"></script>
   </head>
   <body style="margin: 0; overflow: hidden;">
-    <a-scene embedded arjs="sourceType: webcam; trackingMethod: best; maxDetectionRate: 15; smooth: true; smoothCount: 25; smoothTolerance: 0.001; smoothThreshold: 20;" antialias="true" performance="true">
+    <a-scene embedded arjs="sourceType: webcam; trackingMethod: best; maxDetectionRate: 25; smooth: true; smoothCount: 25; smoothTolerance: 0.001; smoothThreshold: 20;" antialias="true" performance="true">
       <!-- 添加燈光 -->
       <a-light type="ambient" intensity="1.0"></a-light>
       <a-light type="directional" position="0 2 2" intensity="0.8" shadow="cast: false;"></a-light>
@@ -53,7 +53,7 @@
           const distance = markerPosition.distanceTo(cameraPosition);
 
           // 如果距離超過50cm，隱藏模型
-          if (distance > 0.1) {
+          if (distance > 0.05) {
             model.object3D.visible = false;
           } else {
             model.object3D.visible = true;
