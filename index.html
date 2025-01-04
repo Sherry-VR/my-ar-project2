@@ -5,17 +5,17 @@
     <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/ar.js/aframe/build/aframe-ar.min.js"></script>
   </head>
   <body style="margin: 0; overflow: hidden;">
-    <a-scene embedded arjs="sourceType: webcam; trackingMethod: best; maxDetectionRate: 30; smooth: true; smoothCount: 20; smoothTolerance: 0.002; smoothThreshold: 10;" antialias="true" performance="true">
-      <!-- 添加燈光 -->
+    <a-scene embedded arjs="sourceType: webcam; maxDetectionRate: 30; smooth: true; smoothCount: 20; smoothTolerance: 0.005; smoothThreshold: 10;" antialias="true" performance="true">
+      <!-- 燈光設置 -->
       <a-light type="ambient" intensity="0.8"></a-light>
       <a-light type="directional" position="0 2 2" intensity="1" shadow="cast: false;"></a-light>
       <!-- 標靶和模型 -->
-      <a-marker type="nft" url="./pattern-qr-code-Aa.patt" smooth="true" smoothCount="20" smoothTolerance="0.002" smoothThreshold="10">
+      <a-marker type="pattern" url="./pattern-marker.patt" smooth="true" smoothCount="20" smoothTolerance="0.005" smoothThreshold="10">
         <a-entity 
           position="0 0 4" 
           rotation="-90 0 0" 
           scale="20 20 20" 
-          gltf-model="./wine1_2.glb" 
+          gltf-model="./model.glb" 
           render-order="2"
           shadow="cast: false; receive: false;"
           frustumCulled="false">
